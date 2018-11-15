@@ -151,14 +151,18 @@ body {
 
 html {
   font-family: "duck Hunt Font", sans-serif, tahoma;
-  font-size: 62.5%;
-  cursor: url(../Assets/tester.jpg), auto; }
+  font-size: 62.5%; }
+
+header {
+  position: absolute;
+  right: 0;
+  left: 0; }
 
 main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100vh; }
+  height: 100%; }
 
 .start-menu {
   background: #fafafa;
@@ -173,26 +177,41 @@ h1 {
   color: #232323; }
 
 h1:hover {
-  cursor: url(../Assets/tester.jpg), auto;
-  color: white;
-  -webkit-text-stroke-color: black;
+  color: #fafafa;
+  -webkit-text-stroke-color: #191919;
   -webkit-text-stroke-width: 3px; }
 
 p {
   font-size: 16px;
-  font-family: 'Press Start 2P',sans-serif; }
+  font-family: 'Press Start 2P',sans-serif;
+  margin: 0;
+  line-height: 1.6; }
 
 .start-game-button {
   font-size: 40px;
-  -webkit-box-shadow: 2px 3px 3px black;
-  box-shadow: 2px 3px 3px black;
+  -webkit-box-shadow: 2px 3px 3px #191919;
+  box-shadow: 2px 3px 3px #191919;
   border: 2px solid #fafafa; }
   .start-game-button:active {
-    -webkit-box-shadow: 0px 0px 1px black;
-    box-shadow: 0px 0px 1px black;
+    -webkit-box-shadow: 0px 0px 1px #191919;
+    box-shadow: 0px 0px 1px #191919;
     color: tomato; }
   .start-game-button:hover {
     background: lightblue; }
 
-.dissapear {
+.invisible {
   display: none; }
+
+.game-title h2 {
+  font-size: 30px;
+  margin: 1px; }
+
+.status-bar {
+  background-color: #fafafa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 20px; }

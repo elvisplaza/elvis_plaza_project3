@@ -40,6 +40,7 @@ const myApp = {};
 myApp.getInit = function (){
     myApp.startGame();
     myApp.startTimer();
+  
 }
 
 myApp.startGame = function(){
@@ -47,10 +48,14 @@ myApp.startGame = function(){
         e.preventDefault();
         $('.start-menu').hide();
         $('.game-bar').removeClass('invisible');
-        $('canvas').removeClass('invisible');
-
+        $('.bugs').removeClass('invisible');
+        myApp.disappearAndCounter();
+        $('main').addClass('cursor');
+        myApp.gameOver();
     })
 }
+
+
 myApp.time = function(duration, display){
     let timer = duration, minutes, seconds;
     setInterval(function(){
@@ -71,6 +76,45 @@ myApp.startTimer = function () {
 };
 
 
+myApp.gameOver = function (){
+    setTimeout(function(){
+        $('.game-bar').toggleClass('invisible');
+        $('.bugs').addClass('invisible')
+        $('.game-over-menu').toggleClass('invisible');
+
+    }, 5000)
+}
+
+myApp.counter = 0;
+
+
+myApp.disappearAndCounter = function(){
+    $('.bugs').on('click',function(){
+        $(this).addClass('invisible');
+        myApp.counter++
+        document.getElementById('score1').innerHTML = myApp.counter;
+        $('main').toggleClass('cursor');
+        $('main').toggleClass('swatting');
+    })
+    
+}
+// myApp.swattingAffect = function (){
+//     $('.bug').on('click',function(){
+//         if($('main') === )
+//     })
+
+// }
+
+
+
+
+//     $('input').on('click', function(){
+//         $('.bugs').addClass('invisible');
+//     }
+// }
+    
+
+// }
 
 
 //a game that can swat bugs as they come up. you get points for every bug you swat, you must avoid 'doug' or you get points taken off, there is a timer. use eye recognition app to move screen.

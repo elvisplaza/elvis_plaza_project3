@@ -19,7 +19,17 @@ body {
 html {
     font-family: "duck Hunt Font", sans-serif, tahoma;
     font-size: 62.5%;
-    // cursor:url(../Assets/swatter.svg), auto;
+
+}
+.cursor {
+    cursor:url(../Assets/swatter.png),
+    auto;
+}
+
+
+.swatting {
+    cursor:url(../Assets/swatter2.png), auto;
+
 }
 header {
         position: absolute;
@@ -71,6 +81,11 @@ p {
         // border-radius: 20%;
     }
 }
+.bugs {
+    width:90px;
+    height:90px;
+}
+
 .invisible {
     display:none;
 }
@@ -85,6 +100,80 @@ justify-content: space-between;
 padding: 20px;
 }
 
+.invisible1 {
+   position: absolute;
+   bottom: 145px;
+   right: 0;
+   animation: bugMovement 4s linear infinite;
+}
+
+.invisible2 {
+     position: absolute;
+     bottom: 145px;
+     right: 100px;
+     animation: bugMovement2 4s linear infinite;
+}
+
+@keyframes bugMovement {
+    0% {
+        bottom:145px;
+        right:0;
+    }
+    10%{
+        bottom:175px;
+        right: 56px;
+    }
+    20%{
+        bottom: 185px;
+        right: 80px;
+    }
+    30%{
+        bottom: 200px;
+        right: 100px;
+
+    }
+    40%{
+        bottom: 230px;
+        right:130px;
+    }
+    100%{
+        bottom: 500px;
+        right:200px;
+    }
+}
+
+@keyframes bugMovement2 {
+    0% {
+        bottom: 145px;
+        right: 100px;
+    }
+
+    10% {
+        bottom: 175px;
+        right: 156px;
+    }
+
+    20% {
+        bottom: 185px;
+        right: 180px;
+    }
+
+    30% {
+        bottom: 200px;
+        right: 200px;
+
+    }
+
+    40% {
+        bottom: 230px;
+        right: 230px;
+    }
+
+    100% {
+        bottom: 500px;
+        right: 400px;
+    }
+}
 // canvas {
 //     width: 100%;
 //     height: 100vh;

@@ -170,7 +170,8 @@ main {
   display: flex;
   height: 100%; }
 
-.start-menu {
+.start-menu,
+.game-over-menu {
   background: #fafafa;
   margin: auto;
   padding: 20px 60px 90px 60px;

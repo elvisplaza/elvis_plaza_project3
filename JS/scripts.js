@@ -1,121 +1,104 @@
 const myApp = {};
 
-
-// canvas code 
-// myApp.canvas = document.getElementById('canvas');
-// myApp.ctx = myApp.canvas.getContext('2d');
-// myApp.canvas.width = 500;
-// myApp.canvas.height = 500;
-// myApp.image = new Image();
-// myApp.image.src= "../Assets/fly3.svg";
-// myApp.fly = myApp.ctx.drawImage(myApp.image, myApp.rectX, myApp.rectY, 80, 80);
-
-// (function () {
-
-//     // resize the canvas to fill browser window dynamically
-//     window.addEventListener('resize', resizeCanvas, false);
-
-//     function resizeCanvas() {
-//         myApp.canvas.width = window.innerWidth;
-//         myApp.canvas.height = window.innerHeight;
-
-//         /**
-//          * Your drawings need to be inside this function otherwise they will be reset when 
-//          * you resize the browser window and the canvas goes will be cleared.
-//          */
-//         drawStuff();
-//     }
-//     resizeCanvas();
-
-//     function drawStuff() {
-//         // do your drawing stuff here
-//     }
-// })();
-
-
-
-
-
-
+// ================== program starter========================
 myApp.getInit = function (){
-    myApp.startGame();
-    myApp.startTimer();
-  
-}
+    $('form').on('submit', myApp.startGame);
+    $('#start-over').on('click', myApp.startGame)
 
-myApp.startGame = function(){
-    $('form').on('submit', function(e){
-        e.preventDefault();
-        $('.start-menu').hide();
-        $('.game-bar').removeClass('invisible');
-        $('.bugs').removeClass('invisible');
-        myApp.disappearAndCounter();
-        $('main').addClass('cursor');
-        myApp.gameOver();
-    })
-}
-
-
-myApp.time = function(duration, display){
-    let timer = duration, minutes, seconds;
-    setInterval(function(){
-        minutes = parseInt(timer / 60, 10)
-        seconds = parseInt(timer % 60, 10);
-        minutes = minutes < 10 ? "" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        display.textContent = minutes + ":" + seconds;
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-}
-myApp.startTimer = function () {
-    var twoMinutes = 60 * 2,
-        display = document.querySelector('.timer');
-    myApp.time(twoMinutes, display);
-};
-
-
-myApp.gameOver = function (){
-    setTimeout(function(){
-        $('.game-bar').toggleClass('invisible');
-        $('.bugs').addClass('invisible')
-        $('.game-over-menu').toggleClass('invisible');
-
-    }, 5000)
-}
-
-myApp.counter = 0;
-
-
-myApp.disappearAndCounter = function(){
-    $('.bugs').on('click',function(){
+    $('.bugs').on('click', function () {
         $(this).addClass('invisible');
         myApp.counter++
-        document.getElementById('score1').innerHTML = myApp.counter;
-        $('main').toggleClass('cursor');
-        $('main').toggleClass('swatting');
+        $('#score1').text(myApp.counter)
+        $('main').toggleClass('cursor swatting');
+        setTimeout(function () {
+            $('main').toggleClass('swatting cursor');
+        }, 250);
     })
-    
 }
-// myApp.swattingAffect = function (){
-//     $('.bug').on('click',function(){
-//         if($('main') === )
-//     })
 
-// }
+myApp.startGame = function(e) {
+    e.preventDefault();
+    myApp.resetScore();
+    $('.start-menu').hide(); // hide start menu
+    myApp.hideGameOverMenu();
+    myApp.showGameUI();
+    $('main').addClass('cursor');
+    myApp.startTimer();
+    console.log('%%%%%%%%%%%% START %%%%%%%%%%%%%%%%%');
+};
 
+myApp.endGame = function() {
+    console.log('%%%%%%%%%%%%%%%ENDGAME%%%%%%%%%%%%%%%%%%');
+    clearInterval(myApp.gameInterval);
+    myApp.hideGameUI();
+    myApp.showGameOverMenu();
+    $('main').removeClass('cursor');
+}
 
+myApp.showGameOverMenu = function() {
+    console.log('%%%%%%%%%%% SHOW GAME OVER %%%%%%%%%%%%%');
+    $('.game-over-menu').removeClass('invisible');
+    $('#score2').text(myApp.counter);
+}
 
+myApp.hideGameOverMenu = function() {
+    console.log('%%%%%%%%%%% HIDE GAME OVER %%%%%%%%%%%%%');
+    $('.game-over-menu').addClass('invisible');
+}
 
-//     $('input').on('click', function(){
-//         $('.bugs').addClass('invisible');
-//     }
-// }
-    
+myApp.hideGameUI = function () {
+    console.log('%%%%%%%%%%% HIDE GAME UI %%%%%%%%%%%%%');
+    $('.game-bar').addClass('invisible');
+    $('.bugs').addClass('invisible')
+}
 
-// }
+myApp.showGameUI = function() {
+    console.log('%%%%%%%%%%% SHOW GAME UI %%%%%%%%%%%%%');
+    $('.game-bar').removeClass('invisible');
+    $('.bugs').removeClass('invisible');
+}
 
+myApp.resetScore = function() {
+    myApp.counter = 0;
+    $('#score1').text(myApp.counter)
+}
+
+myApp.displayTime = function (timer) {
+    let minutes = parseInt(timer / 60, 10)
+    let seconds = parseInt(timer % 60, 10);
+    minutes = minutes < 10 ? "" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    document.querySelector('.timer').textContent = minutes + ":" + seconds;
+}
+
+// ====================== timer============================
+myApp.time = function(duration){
+    let timer = duration;
+    myApp.displayTime(timer);
+
+    return setInterval(function () { 
+        if (--timer < 0) {
+            myApp.endGame();
+            timer = duration;
+        }
+        myApp.displayTime(timer);
+    }, 1000);
+}
+
+// myApp.createFly = function () {
+//     $('img')
+//         .attr('src', 'http://placemorty.us/50/50')
+//         .addClass('bugs');
+// } // makes bugs 
+
+myApp.startTimer = function () {
+    var twoMinutes = 120 * 1;
+    myApp.gameInterval = myApp.time(twoMinutes);
+};
+
+// make a div with a picture in it
+//make the div. attr
+// add bugs 
 
 //a game that can swat bugs as they come up. you get points for every bug you swat, you must avoid 'doug' or you get points taken off, there is a timer. use eye recognition app to move screen.
 
@@ -149,7 +132,7 @@ myApp.disappearAndCounter = function(){
 
 
 
-
+//set interval - 
 
 
 

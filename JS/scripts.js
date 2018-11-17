@@ -3,6 +3,7 @@ const myApp = {};
 // ================== program starter========================
 myApp.getInit = function (){
     $('form').on('submit', myApp.startGame);
+
     $('#start-over').on('click', myApp.startGame)
 
     $('.bugs').on('click', function () {
@@ -10,11 +11,23 @@ myApp.getInit = function (){
         myApp.counter++
         $('#score1').text(myApp.counter)
         $('main').toggleClass('cursor swatting');
+        myApp.bugGenerator();
         setTimeout(function () {
             $('main').toggleClass('swatting cursor');
         }, 250);
     })
+};
+//on a click of start game, create a variable that will represent a counter 
+//calll myApp.fly2() in a  while() {myApp.fly2()}
+myApp.bugGenerator= function(){
+    setInterval(function(){
+        myApp.fly2();
+    },3000) 
 }
+myApp.stopFunction = function (n){
+    clearInterval(n)
+}
+
 
 myApp.startGame = function(e) {
     e.preventDefault();
@@ -24,7 +37,6 @@ myApp.startGame = function(e) {
     myApp.showGameUI();
     $('main').addClass('cursor');
     myApp.startTimer();
-    console.log('%%%%%%%%%%%% START %%%%%%%%%%%%%%%%%');
 };
 
 myApp.endGame = function() {
@@ -49,7 +61,8 @@ myApp.hideGameOverMenu = function() {
 myApp.hideGameUI = function () {
     console.log('%%%%%%%%%%% HIDE GAME UI %%%%%%%%%%%%%');
     $('.game-bar').addClass('invisible');
-    $('.bugs').addClass('invisible')
+    $('.bugs').addClass('invisible');
+    $('.bugs2').addClass('invisible');
 }
 
 myApp.showGameUI = function() {
@@ -79,22 +92,52 @@ myApp.time = function(duration){
     return setInterval(function () { 
         if (--timer < 0) {
             myApp.endGame();
+            myApp.stopFunction(myApp.bugGenerator);
             timer = duration;
         }
         myApp.displayTime(timer);
     }, 1000);
 }
-
-// myApp.createFly = function () {
-//     $('img')
-//         .attr('src', 'http://placemorty.us/50/50')
-//         .addClass('bugs');
-// } // makes bugs 
-
 myApp.startTimer = function () {
-    var twoMinutes = 120 * 1;
+    var twoMinutes = 5* 1;
     myApp.gameInterval = myApp.time(twoMinutes);
 };
+
+// ========================= bug creater ==========================
+
+// myApp.createFly = function(){
+//     $('<div />', {
+//         "class": 'bugs',
+//         "image":../Assets/giphy.gf),
+//         text: "a div",
+//         click: function (e) {
+//             e.preventDefault();
+//         }
+//     })
+//     // $('main').append('<div class="bugs"><img  src="../Assets/giphy.gif"></div>');
+//     // $('bugs').css(animation= bugMovement3 4s linear infinite)
+// }
+
+
+myApp.createFly = function () {
+    // $('main').append($('<div>', {class: 'bugs2', img: src="../Assets/giphy.gif"}));
+    $('main').append('<div class="bugs2"><img  src="./Assets/giphy.gif"></div>');
+    console.log('%%%%%%%%%%%%%%%%%% creates bugs%%%%%%%%%%%%%%%%%%')
+// } // makes bugs 
+}
+
+myApp.makeFlyClickable = function(){
+    $('.bugs2').on('click', function(){
+        $(this).addClass('invisible');
+        myApp.counter++
+        $('#score1').text(myApp.counter)
+    })
+}
+
+myApp.fly2=function(){
+    myApp.createFly();
+    myApp.makeFlyClickable();
+}
 
 // make a div with a picture in it
 //make the div. attr

@@ -208,7 +208,19 @@ p {
 
 .bugs {
   width: 90px;
-  height: 90px; }
+  height: 90px;
+  position: absolute;
+  right: 0;
+  bottom: 45px; }
+
+.bugs2 {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  right: 0;
+  bottom: 45px;
+  -webkit-animation: bugMovement3 4s linear infinite;
+  animation: bugMovement3 4s linear infinite; }
 
 .invisible {
   display: none; }
@@ -314,6 +326,46 @@ p {
   30% {
     bottom: 200px;
     right: 200px; }
+  40% {
+    bottom: 230px;
+    right: 230px; }
+  100% {
+    bottom: 500px;
+    right: 400px; } }
+
+@-webkit-keyframes bugMovement3 {
+  0% {
+    bottom: 145px;
+    right: 200px; }
+  10% {
+    bottom: 175px;
+    right: 356px; }
+  20% {
+    bottom: 185px;
+    right: 480px; }
+  30% {
+    bottom: 200px;
+    right: 600px; }
+  40% {
+    bottom: 230px;
+    right: 230px; }
+  100% {
+    bottom: 500px;
+    right: 400px; } }
+
+@keyframes bugMovement3 {
+  0% {
+    bottom: 145px;
+    right: 200px; }
+  10% {
+    bottom: 175px;
+    right: 356px; }
+  20% {
+    bottom: 185px;
+    right: 480px; }
+  30% {
+    bottom: 200px;
+    right: 600px; }
   40% {
     bottom: 230px;
     right: 230px; }

@@ -187,26 +187,6 @@ h1 {
   -webkit-animation: flash 3s infinite;
   animation: flash 3s infinite; }
 
-@-webkit-keyframes flash {
-  0% {
-    color: #191919; }
-  50% {
-    color: #fafafa;
-    -webkit-text-stroke-color: #191919;
-    -webkit-text-stroke-width: 3px; }
-  100% {
-    color: #191919; } }
-
-@keyframes flash {
-  0% {
-    color: #191919; }
-  50% {
-    color: #fafafa;
-    -webkit-text-stroke-color: #191919;
-    -webkit-text-stroke-width: 3px; }
-  100% {
-    color: #191919; } }
-
 p {
   font-size: 16px;
   font-family: 'Press Start 2P', sans-serif;
@@ -329,6 +309,26 @@ p {
     -webkit-transform: rotate(360deg) translateY(0);
     transform: rotate(360deg) translateY(0);
     bottom: 0%; } }
+
+@-webkit-keyframes flash {
+  0% {
+    color: #191919; }
+  50% {
+    color: #fafafa;
+    -webkit-text-stroke-color: #191919;
+    -webkit-text-stroke-width: 3px; }
+  100% {
+    color: #191919; } }
+
+@keyframes flash {
+  0% {
+    color: #191919; }
+  50% {
+    color: #fafafa;
+    -webkit-text-stroke-color: #191919;
+    -webkit-text-stroke-width: 3px; }
+  100% {
+    color: #191919; } }
 
 @media (max-width: 900px) {
   .wrapper {

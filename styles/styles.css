@@ -331,12 +331,14 @@ p {
     bottom: 0%; } }
 
 @media (max-width: 900px) {
+  .wrapper {
+    max-width: 700px; }
   .start-menu .start-menu {
     background: #fafafa;
     text-align: center;
     border-radius: 10%;
     border: 1px solid black; }
-  .start-menu h1 {
+  h1 {
     font-size: 8rem;
     text-align: center;
     color: #191919;
@@ -348,13 +350,28 @@ p {
   p {
     text-align: center; } }
 
-@media (max-width: 440px) {
+@media (max-width: 700px) {
+  .wrapper {
+    max-width: 500px; }
+  h1 {
+    font-size: 5rem;
+    margin: 20px 0; }
+  p {
+    font-size: 1.5rem; }
+  .start-menu {
+    padding: 20px 20px; } }
+
+@media (max-width: 500px) {
+  .wrapper {
+    max-width: 400px; }
   .game-menu-title {
     font-size: 2rem;
     text-align: center;
     padding-left: 0; }
   p {
     font-size: 1.2rem; }
+  h1 {
+    font-size: 5rem; }
   .start-game-button,
   .start-over {
     font-size: 30px;
@@ -364,6 +381,8 @@ p {
     margin-top: 20px; } }
 
 @media (max-width: 340px) {
+  .wrapper {
+    max-width: 300px; }
   p {
     font-size: 1rem;
     text-align: center; } }

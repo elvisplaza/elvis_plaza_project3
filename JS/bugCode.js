@@ -1,6 +1,7 @@
 myApp.makeFlyClickable = function () {
-    $('.bugs2').off('click').on('click', function () {
+    $('.bugs').off('click').on('click', function () {
         $(this).addClass('invisible');
+        myApp.audioPlay();
         myApp.counter++
         $('#score1').text(myApp.counter);
         $('main').toggleClass('cursor swatting');
@@ -10,19 +11,18 @@ myApp.makeFlyClickable = function () {
     })
 }
 
+myApp.audioPlay=function(){
+    myApp.audio = document.getElementById('audio');
+    audio.play()
+}
+
 myApp.createBugGenerator = function () {
     return setInterval(function () {
-        myApp.fly2();
+        myApp.createFly();
         myApp.makeFlyClickable();
-    }, 10000)
-
-
+    }, 1500);
 }
 
 myApp.createFly = function () {
-    $('main').append(`<div class="bugs2" style="left: ${myApp.randomX()};top:${myApp.randomY()}"><img  src="./Assets/giphy.gif"></div> `);
-}
-myApp.fly2 = function () {
-    myApp.createFly();
-    
+    $('main').append(`<div class="bugs" style="left: ${myApp.randomX()};top:${myApp.randomY()}"><img  src="./Assets/giphy.gif"></div> `);
 }

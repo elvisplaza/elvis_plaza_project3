@@ -3,24 +3,12 @@ const myApp = {};
 // ================== program starter========================
 myApp.getInit = function (){
     $('form').on('submit', myApp.startGame);
-
     $('#start-over').on('click', myApp.startGame)
-
-    // $('.bugs').on('click', function () {
-    //     $(this).addClass('invisible');
-    //     myApp.counter++
-    //     $('#score1').text(myApp.counter)
-    //     $('main').toggleClass('cursor swatting');
-    //     setTimeout(function () {
-    //         $('main').toggleClass('swatting cursor');
-    //     }, 250);
-    // })
 };
 
 myApp.stopFunction = function (n){
     clearInterval(n)
 }
-
 
 myApp.startGame = function(e) {
     e.preventDefault();
@@ -31,15 +19,13 @@ myApp.startGame = function(e) {
     $('main').addClass('cursor');
     myApp.startTimer();
     myApp.bugGenerator = myApp.createBugGenerator();
-
+    myApp.dougGenerator = myApp.createDougGenerator();
 };
 
-
-
 myApp.endGame = function() {
-    console.log('%%%%%%%%%%%%%%%ENDGAME%%%%%%%%%%%%%%%%%%');
     clearInterval(myApp.gameInterval);
     myApp.stopFunction(myApp.bugGenerator);
+    myApp.stopFunction(myApp.dougGenerator);
     myApp.hideGameUI();
     myApp.showGameOverMenu();
     $('main').removeClass('cursor');
@@ -60,13 +46,12 @@ myApp.hideGameUI = function () {
     console.log('%%%%%%%%%%% HIDE GAME UI %%%%%%%%%%%%%');
     $('.game-bar').addClass('invisible');
     $('.bugs').addClass('invisible');
-    $('.bugs2').addClass('invisible');
+    $('.doug').addClass('invisible');
 }
 
 myApp.showGameUI = function() {
     console.log('%%%%%%%%%%% SHOW GAME UI %%%%%%%%%%%%%');
     $('.game-bar').removeClass('invisible');
-    $('.bugs').removeClass('invisible');
 }
 
 myApp.resetScore = function() {
@@ -96,7 +81,7 @@ myApp.time = function(duration){
     }, 1000);
 }
 myApp.startTimer = function () {
-    var twoMinutes = 120* 1;
+    var twoMinutes = 60 * 1;
     myApp.gameInterval = myApp.time(twoMinutes);
 };
 

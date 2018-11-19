@@ -1,0 +1,48 @@
+@media (max-width:900px){
+    .start-menu {
+        .start-menu{
+            background: #fafafa;
+            text-align: center;
+            border-radius: 10%;
+            border: 1px solid black;
+        }
+
+        h1 {
+            font-size: 8rem;
+            text-align: center;
+            color: $black;
+            animation: flash 3s infinite;
+
+        }
+    }
+    .game-menu-title {
+        margin: 0;
+        font-size: 3rem;
+    }
+    p{text-align: center}
+}
+
+@media(max-width:440px){
+    .game-menu-title{
+        font-size:2rem;
+        text-align: center;
+        padding-left:0;
+    }
+    p {
+        font-size:1.2rem;
+    }
+.start-game-button,
+.start-over {
+    font-size: 30px;
+    box-shadow: 2px 3px 3px $black;
+    border: 2px solid grey;
+    margin-top: 20px;
+    }
+}
+
+@media(max-width:340px){
+    p {
+        font-size:1rem;
+        text-align: center;
+    }
+}

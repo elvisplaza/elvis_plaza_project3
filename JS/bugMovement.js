@@ -1,12 +1,4 @@
 
-
-// myApp.addToX=function(){
-//     return setInterval(function(){
-//         myApp.xAxis++
-//     },1000)
-// }
-
-
 myApp.randomX = function () {
     myApp.xAxis = Math.floor(Math.random() * (90 + 1));
     if(myApp.xAxis >=84 && randomX <=90){

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,11 @@
     <title>fly Swat</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Notable|Press+Start+2P|Sigmar+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Notable|Press+Start+2P|Sigmar+One" rel="stylesheet">
 
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
+
 <body>
     <!-- <canvas id="canvas" class="invisible"></canvas> -->
     <header>
@@ -20,7 +22,7 @@
                     <p>Score:<span class="score" id="score1"></span></p>
                 </div>
                 <div class="game-title">
-                    <h2>FLY SWATTER</h2>
+                    <h2 class="game-menu-title">FLY SWATTER</h2>
                 </div>
                 <div class="game-timer">
                     <p>Time left: <span class="timer"></span></p>
@@ -30,6 +32,9 @@
     </header>
     <main>
         <div class="start-menu">
+            <audio src="./Assets/bark.mp3" id="bark"></audio>
+            <audio src="./Assets/doug.mp3" id="doug"></audio>
+            <audio src="./Assets/swat.mp3" id="audio"></audio>
             <h1>fly Swatter</h1>
             <p class="one">try to swat as many bugs before the timer runs out!</p>
             <p class="two">BUT becareful not to swat doug!</p>
@@ -38,48 +43,24 @@
                 <input type="submit" class="start-game-button" for="start-game" value="start-game">
             </form>
         </div>
-        <!-- =================== bugs============================= -->
-        <!-- <div class="invisible1 bugs invisible">
-            <img src="./Assets/giphy.gif" alt="a pictue of a fly">
-        </div>
-        <div class="invisible2 bugs invisible">
-            <img src="./Assets/giphy.gif" alt="a pictue of a fly">
-        </div> -->
-        <!-- ========================= game-over======================== -->
         <div class="game-over-menu invisible">
             <div class="game-score">
                 <p>Score:<span class="score" id="score2"></span></p>
             </div>
             <div class="game-title">
-                <h2>FLY SWATTER</h2>
-                <button id="start-over">start over?</button>
+                <h2 class="game-menu-title game-over-title">FLY SWATTER</h2>
+                <button class="start-over" id="start-over">start over?</button>
             </div>
         </div>
-
-
-        <!-- <div class="invisible3 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
-        <!-- <div class="invisible4 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
-        <!-- <div class="invisible5 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
-        <!-- <div class="invisible6 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
-        <!-- <div class="invisible7 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
-        <!-- <div class="invisible8 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
-        <!-- <div class="invisible9 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
-        <!-- <div class="invisible10 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
-        <!-- <div class="invisible11 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
-        <!-- <div class="invisible12 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
-        <!-- <div class="invisible13 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
-        <!-- <div class="invisible14 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
-        <!-- <div class="invisible15 bugs invisible"><img src="./Assets/fly3.svg" alt="a pictue of a fly"></div> -->
     </main>
     <footer>
-        <!-- <div>Icons made by <a href="https://www.freepik.com"                title="Freepik">Freepik</a> from <a                                 href="https://www.flaticon.com/"
-                title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"
-                title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-        </div> -->
     </footer>
-    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='
+        crossorigin='anonymous'></script>
     <script src="./JS/scripts.js"></script>
     <script src="./JS/bugCode.js"></script>
     <script src="./JS/bugMovement.js"></script>
+    <script src="./JS/doug.js"></script>
 </body>
+
 </html>

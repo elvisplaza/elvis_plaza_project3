@@ -175,19 +175,37 @@ main {
 .game-over-menu {
   background: #fafafa;
   margin: auto;
-  padding: 20px 60px 90px 60px;
+  padding: 20px 60px 70px 60px;
   text-align: center;
-  border-radius: 10%; }
+  border-radius: 10%;
+  border: 1px solid black; }
 
 h1 {
   font-size: 10rem;
   text-align: center;
-  color: #232323; }
+  color: #191919;
+  -webkit-animation: flash 3s infinite;
+  animation: flash 3s infinite; }
 
-h1:hover {
-  color: #fafafa;
-  -webkit-text-stroke-color: #191919;
-  -webkit-text-stroke-width: 3px; }
+@-webkit-keyframes flash {
+  0% {
+    color: #191919; }
+  50% {
+    color: #fafafa;
+    -webkit-text-stroke-color: #191919;
+    -webkit-text-stroke-width: 3px; }
+  100% {
+    color: #191919; } }
+
+@keyframes flash {
+  0% {
+    color: #191919; }
+  50% {
+    color: #fafafa;
+    -webkit-text-stroke-color: #191919;
+    -webkit-text-stroke-width: 3px; }
+  100% {
+    color: #191919; } }
 
 p {
   font-size: 16px;
@@ -195,19 +213,23 @@ p {
   margin: 0;
   line-height: 1.6; }
 
-.start-game-button {
+.start-game-button,
+.start-over {
   font-size: 40px;
   -webkit-box-shadow: 2px 3px 3px #191919;
   box-shadow: 2px 3px 3px #191919;
-  border: 2px solid #fafafa; }
-  .start-game-button:active {
+  border: 2px solid grey;
+  margin-top: 30px; }
+  .start-game-button:active,
+  .start-over:active {
     -webkit-box-shadow: 0px 0px 1px #191919;
     box-shadow: 0px 0px 1px #191919;
     color: tomato; }
-  .start-game-button:hover {
+  .start-game-button:hover,
+  .start-over:hover {
     background: lightblue; }
 
-.bugs2 {
+.bugs {
   width: 90px;
   height: 90px;
   position: absolute;
@@ -224,17 +246,39 @@ p {
   /* Firefox */
   -ms-user-select: none;
   /* Internet Explorer/Edge */
+  user-select: none; }
+
+.doug {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
   user-select: none;
-  /* Non-prefixed version, currently
-    supported by Chrome and Opera*/
-  overflow: hidden; }
+  -webkit-animation: doug 7s linear infinite;
+  animation: doug 7s linear infinite; }
 
 .invisible {
   display: none; }
 
-.game-title h2 {
-  font-size: 30px;
-  margin: 1px; }
+.game-over-menu {
+  padding-bottom: 40px; }
+
+.game-menu-title {
+  font-size: 6rem;
+  margin: 0; }
+
+.game-over-title {
+  padding-top: 20px;
+  padding-left: 1px; }
 
 .status-bar {
   background-color: #fafafa;
@@ -261,3 +305,65 @@ p {
   to {
     -webkit-transform: rotate(360deg) translateX(100px) rotate(-360deg);
     transform: rotate(360deg) translateX(100px) rotate(-360deg); } }
+
+@-webkit-keyframes doug {
+  from {
+    -webkit-transform: rotate(0deg) translateY(0);
+    transform: rotate(0deg) translateY(0);
+    bottom: 0%; }
+  50% {
+    bottom: 100%; }
+  to {
+    -webkit-transform: rotate(360deg) translateY(0);
+    transform: rotate(360deg) translateY(0);
+    bottom: 0%; } }
+
+@keyframes doug {
+  from {
+    -webkit-transform: rotate(0deg) translateY(0);
+    transform: rotate(0deg) translateY(0);
+    bottom: 0%; }
+  50% {
+    bottom: 100%; }
+  to {
+    -webkit-transform: rotate(360deg) translateY(0);
+    transform: rotate(360deg) translateY(0);
+    bottom: 0%; } }
+
+@media (max-width: 900px) {
+  .start-menu .start-menu {
+    background: #fafafa;
+    text-align: center;
+    border-radius: 10%;
+    border: 1px solid black; }
+  .start-menu h1 {
+    font-size: 8rem;
+    text-align: center;
+    color: #191919;
+    -webkit-animation: flash 3s infinite;
+    animation: flash 3s infinite; }
+  .game-menu-title {
+    margin: 0;
+    font-size: 3rem; }
+  p {
+    text-align: center; } }
+
+@media (max-width: 440px) {
+  .game-menu-title {
+    font-size: 2rem;
+    text-align: center;
+    padding-left: 0; }
+  p {
+    font-size: 1.2rem; }
+  .start-game-button,
+  .start-over {
+    font-size: 30px;
+    -webkit-box-shadow: 2px 3px 3px #191919;
+    box-shadow: 2px 3px 3px #191919;
+    border: 2px solid grey;
+    margin-top: 20px; } }
+
+@media (max-width: 340px) {
+  p {
+    font-size: 1rem;
+    text-align: center; } }
